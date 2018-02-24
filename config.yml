@@ -1,19 +1,19 @@
-title: " #megurorb"
+title: "ChatWorkMentionTaskを作った #megurorb"
 author: "sue445"
 #theme: "sky"
 
 meta_properties:
   og:locale: "ja_JP"
   og:type: "website"
-  og:title: " #megurorb"
+  og:title: "ChatWorkMentionTaskを作った #megurorb"
   og:description: "Meguro.rb#12 2018/02/26(Mon.) の発表資料です"
   og:url: "https://sue445.github.io/meguro-rb-12/#/"
-  #og:image: "https://sue445.github.io/meguro-rb-12/images/cover.png"
+  og:image: "https://sue445.github.io/meguro-rb-12/images/cover.png"
 
 meta_names:
   twitter:card: "Summary"
   twitter:site: "@sue445"
   twitter:creator: "@sue445"
-  twitter:title: " #megurorb"
+  twitter:title: "ChatWorkMentionTaskを作った #megurorb"
   twitter:description: "Meguro.rb#12 2018/02/26(Mon.) の発表資料です"
   twitter:image: "https://sue445.github.io/meguro-rb-12/images/cover.png"

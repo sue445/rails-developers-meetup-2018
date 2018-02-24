@@ -1,9 +1,11 @@
 <section>
 
-<p># <br>
-sue445</p>
+<h1>ChatWorkMentionTaskを作った</h1>
+<p>sue445</p>
 
 <p>2018/02/26 <a href="https://megurorb.connpass.com/event/78332/">Meguro.rb#12</a></p>
+
+<p><a href="https://github.com/sue445/megurorb-12">https://github.com/sue445/megurorb-12</a></p>
 
 </section>
 <section>
@@ -13,16 +15,295 @@ sue445</p>
 
 <ul>
   <li><a href="https://twitter.com/sue445">@sue445</a></li>
+  <li>最近はTerraformと戦う日々</li>
+  <li>去年は尿管結石が3〜4回できたり、持病が悪化して入院したり、親が死んで喪主やったりと色々と大変だったので今年は平穏に生きたい</li>
 </ul>
 
 </section>
 <section>
 
-<h2>今日話すこと</h2>
+<h2>今回話すこと</h2>
+<ul>
+  <li>趣味アプリと副産物の宣伝</li>
+</ul>
 
 </section>
 <section>
 
-<h2>アジェンダ</h2>
+<h2>ChatWorkMentionTaskとは</h2>
+<ul>
+  <li><a href="https://chatwork-mention-task.herokuapp.com/">https://chatwork-mention-task.herokuapp.com/</a></li>
+  <li>自分宛のメンションを既読にすると後から見返す手段がなくて不便なので、Slackの <code>@</code> 的なやつが欲しくて作った</li>
+</ul>
+
+<p><img src="images/chatwork_unread_mentions.png" alt="chatwork_unread_mentions"></p>
+
+</section>
+<section>
+
+<h3>動作風景</h3>
+<ul>
+  <li>自分宛にきたメンションが自動的に別部屋にタスク化され、一覧表示される</li>
+  <li>重要なものや後で対応必要なものだけ残して、それ以外のタスクを完了にする運用</li>
+</ul>
+
+<p><img src="images/about.png" alt="about"></p>
+
+</section>
+<section>
+
+<h3>所感</h3>
+<ul>
+  <li>半月くらい人柱運用してるけど日々の仕事がむっちゃ捗ってる！！！</li>
+  <li>ぶっちゃげChatWork本体に欲しい機能なんだが、<a href="http://feedback-ja.chatwork.com/forums/269086-chatwork-%E3%81%94%E6%84%8F%E8%A6%8B-%E3%81%94%E8%A6%81%E6%9C%9B%E3%83%95%E3%82%A9%E3%83%BC%E3%83%A9%E3%83%A0/suggestions/7575039-to%E4%B8%80%E8%A6%A7%E6%A9%9F%E8%83%BD">3年前から要望は出ている</a> がいまだに実装されていないので諦めて自分で作った</li>
+</ul>
+
+</section>
+<section>
+
+<h3>技術的なこと</h3>
+<ul>
+  <li><a href="https://github.com/sue445/chatwork_mention_task">https://github.com/sue445/chatwork_mention_task</a></li>
+  <li>ChatWork以外はいつものやつ
+    <ul>
+      <li>Ruby 2.5.0</li>
+      <li>Rails 5.2.0.rc1</li>
+      <li>Bootstrap 4.0.0</li>
+      <li>ChatWork (API, OAuth, Webhook)</li>
+    </ul>
+  </li>
+</ul>
+
+</section>
+<section>
+
+<h3>仕組み</h3>
+<ol>
+  <li>ChatWorkMentionTaskにChatWorkのアカウントでOAuth認証</li>
+  <li>ChatWorkの自分のアカウントにChatWorkMentionTaskのwebhookを登録</li>
+  <li>メンションがきたらwebhookが飛んできてタスク化される</li>
+</ol>
+
+</section>
+<section>
+
+<h3>頑張ったこと</h3>
+<p>ChatWorkのAPIのリフレッシュトークンの有効期限は2週間なので、リフレッシュトークンが切れる3日前にリマインド用にタスクを作るようにした</p>
+
+<p><img src="images/chatwork_mention_task_reminder.png" alt="chatwork_mention_task_reminder"></p>
+
+</section>
+<section>
+
+<p>webhookの <code>params[:body]</code> にチャット本文が入っていて、それがログに出るのが嫌だったのでパスワード同様フィルタリングするようにした。</p>
+
+<p><img src="images/chatwork_mention_task_log.png" alt="chatwork_mention_task_log"></p>
+
+</section>
+<section>
+
+<p><img src="images/commit_ec3e2583044e2c132ef1de9ef0c656f1e74dcac1.png" alt="commit_ec3e2583044e2c132ef1de9ef0c656f1e74dcac1"></p>
+
+<p><a href="https://github.com/sue445/chatwork_mention_task/commit/ec3e2583044e2c132ef1de9ef0c656f1e74dcac1">https://github.com/sue445/chatwork_mention_task/commit/ec3e2583044e2c132ef1de9ef0c656f1e74dcac1</a></p>
+
+</section>
+<section>
+
+<h2>副産物の紹介</h2>
+<ul>
+  <li>omniauth-chatwork <img class="emoji" alt=":gem:" src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f48e.png">
+</li>
+  <li>chatwork <img class="emoji" alt=":gem:" src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f48e.png">
+</li>
+  <li>chatwork_webhook_verify <img class="emoji" alt=":gem:" src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f48e.png">
+</li>
+  <li>dockerfile-heroku-cli <img class="emoji" alt=":whale:" src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f433.png">
+</li>
+  <li>dockerhub-slack-webhook <img class="emoji" alt=":whale:" src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f433.png">
+</li>
+</ul>
+
+</section>
+<section>
+
+<h2>omniauth-chatwork <img class="emoji" alt=":gem:" src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f48e.png">
+</h2>
+<p><a href="https://github.com/sue445/omniauth-chatwork">https://github.com/sue445/omniauth-chatwork</a></p>
+
+<ul>
+  <li>ChatWorkのOAuth認証に対応したomniauthのprovider</li>
+  <li>詳しいこと: <a href="http://sue445.hatenablog.com/entry/2017/11/16/172724">omniauth-chatworkを作った</a>
+</li>
+</ul>
+
+</section>
+<section>
+
+<h3>実際の設定</h3>
+<p>Railsだとこんな風に書いておくだけでいい感じにChatWorkのOAuth認証が使えるようになる</p>
+
+<pre><code class="language-ruby"># config/initializers/omniauth.rb
+Rails.application.config.middleware.use OmniAuth::Builder do
+  provider :chatwork, ENV["CHATWORK_CLIENT_ID"], ENV["CHATWORK_CLIENT_SECRET"], scope: ["users.profile.me:read", "rooms.tasks:write", "rooms.info:read"]
+end
+</code></pre>
+
+<p><a href="https://github.com/sue445/chatwork_mention_task/blob/10dd0c197060fbc62016fe33b60a2089dfb74261/config/initializers/omniauth.rb">https://github.com/sue445/chatwork_mention_task/blob/10dd0c197060fbc62016fe33b60a2089dfb74261/config/initializers/omniauth.rb</a></p>
+
+</section>
+<section>
+
+<h2>chatwork <img class="emoji" alt=":gem:" src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f48e.png">
+</h2>
+<p><a href="https://github.com/asonas/chatwork-ruby">https://github.com/asonas/chatwork-ruby</a></p>
+
+<ul>
+  <li>omniauth-chatworkでOAuth認証できてもAPIでアクセストークンが使えないと意味がないのでchatwork gemのOAuth対応をした</li>
+  <li>他にいろいろPR送りまくってたら気づいたらメンテナになってた
+    <ul>
+      <li><a href="http://asonas.hatenablog.com/entry/2017/12/04/035700">chatwork-rubyのメンテナにsue445さんを迎えました。 - 良いあそなすちゃん</a></li>
+    </ul>
+  </li>
+</ul>
+
+</section>
+<section>
+
+<h3>やったこと</h3>
+<p><img src="images/chatwork-ruby_contributors.png" alt="chatwork-ruby_contributors"></p>
+
+</section>
+<section>
+
+<h3>頑張ったこと</h3>
+<ul>
+  <li>ChatWorkが公開してるAPIのスキーマ(raml)を使ってrspecのテストデータを自動生成するようにした</li>
+  <li><a href="https://github.com/asonas/chatwork-ruby">https://github.com/asonas/chatwork-ruby</a> のsubmoduleに <a href="https://github.com/chatwork/api">https://github.com/chatwork/api</a> を追加してramlを使えるようにしている</li>
+</ul>
+
+</section>
+<section>
+
+<h4>実際のテストコード</h4>
+<ul>
+  <li>
+<code>stub_chatwork_request</code> と <code>it_behaves_like :a_chatwork_api</code> でramlを利用</li>
+  <li>APIクライアントではテストデータの生成が面倒なのでそこを公式が提供しているデータを使って自動化できて便利</li>
+</ul>
+
+<pre><code class="language-ruby">describe ".create", type: :api do
+  subject { ChatWork::Message.create(room_id: room_id, body: body, &amp;block) }
+
+  let(:room_id) { 123 }
+  let(:body)    { "Hello ChatWork!" }
+
+  before do
+    stub_chatwork_request(:post, "/rooms/#{room_id}/messages", "/rooms/{room_id}/messages")
+  end
+
+  it_behaves_like :a_chatwork_api, :post, "/rooms/{room_id}/messages"
+end
+</code></pre>
+
+<p><a href="https://github.com/asonas/chatwork-ruby/blob/v0.8.0/spec/lib/chatwork/message_spec.rb#L24-L35">https://github.com/asonas/chatwork-ruby/blob/v0.8.0/spec/lib/chatwork/message_spec.rb#L24-L35</a></p>
+
+</section>
+<section>
+
+<h2>chatwork_webhook_verify <img class="emoji" alt=":gem:" src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f48e.png">
+</h2>
+<ul>
+  <li><a href="https://github.com/sue445/chatwork_webhook_verify">https://github.com/sue445/chatwork_webhook_verify</a></li>
+  <li>ChatWorkのwebhookの署名を検証するためのgem</li>
+  <li>Railsだと <code>before_action</code> から呼んでやるだけでOK <img class="emoji" alt=":ok_woman:" src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f646.png">
+</li>
+</ul>
+
+<pre><code class="language-ruby"># app/controllers/webhook_controller.rb
+class WebhookController &lt; ApplicationController
+  before_action :verify_chatwork_webhook_signature!
+end
+</code></pre>
+
+</section>
+<section>
+
+<p>リクエストごとにtokenを変えて検証する必要がある場合はこんな感じ</p>
+
+<pre><code class="language-ruby">class WebhookController &lt; ApplicationController
+  before_action :set_user
+  before_action :verify_signature!
+
+  private
+
+    def verify_signature!
+      return unless Global.app.verify_signature?
+
+      verify_chatwork_webhook_signature!(@user.webhook_token)
+    end
+end
+</code></pre>
+
+<p><a href="https://github.com/sue445/chatwork_mention_task/blob/10dd0c197060fbc62016fe33b60a2089dfb74261/app/controllers/webhook_controller.rb">https://github.com/sue445/chatwork_mention_task/blob/10dd0c197060fbc62016fe33b60a2089dfb74261/app/controllers/webhook_controller.rb</a></p>
+
+</section>
+<section>
+
+<h3>dockerfile-heroku-cli <img class="emoji" alt=":whale:" src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f433.png">
+</h3>
+<ul>
+  <li><a href="https://github.com/sue445/dockerfile-heroku-cli">https://github.com/sue445/dockerfile-heroku-cli</a></li>
+  <li><a href="https://hub.docker.com/r/sue445/heroku-cli/">https://hub.docker.com/r/sue445/heroku-cli/</a></li>
+  <li>CircleCIからherokuにデプロイする時に毎回 <a href="https://github.com/heroku/cli">heroku/cli</a> をダウンロードしたくなかったのでインストール済のイメージを作った</li>
+  <li>alpineに必要最低限のパッケージやバイナリしか入れてないので47MBしかない超軽量イメージ
+    <ul>
+      <li>Docker Hubを検索してると似たようなイメージを作ってる人はたくさんいるけど、自分が見た範囲では <code>sue445/heroku-cli</code> が最軽量</li>
+    </ul>
+  </li>
+</ul>
+
+</section>
+<section>
+
+<h4>頑張ったこと</h4>
+<p>常に最新のheroku/cliをDockerイメージで使いたかったので、heroku/cliの更新を自動検知してDockerイメージを自動ビルドする仕組を作った</p>
+
+<ol>
+  <li>CircleCIのスケジューラが週1で起動</li>
+  <li>heroku cliのバージョンが上がっていればCircleCIがファイルをコミットしてGitHubにpush</li>
+  <li>GitHubにpushされればDocker Hubの <a href="https://docs.docker.com/docker-hub/github/">automated builds</a> でビルドがされる</li>
+</ol>
+
+<p><a href="https://github.com/sue445/dockerfile-heroku-cli/blob/fd4517b1b252e182d7b318fed74fe95fbe79e782/.circleci/config.yml#L64-L79">https://github.com/sue445/dockerfile-heroku-cli/blob/fd4517b1b252e182d7b318fed74fe95fbe79e782/.circleci/config.yml#L64-L79</a></p>
+
+</section>
+<section>
+
+<h3>dockerhub-slack-webhook <img class="emoji" alt=":whale:" src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f433.png">
+</h3>
+<ul>
+  <li><a href="https://github.com/sue445/dockerhub-slack-webhook">https://github.com/sue445/dockerhub-slack-webhook</a></li>
+  <li>Docker Hubでビルドした後にSlackに通知するためのwebhook</li>
+  <li>ビルドしたイメージがいつビルド終わるか分からないので、Slackに手軽に通知できるようにしたかった</li>
+</ul>
+
+<p><img src="images/dockerhub-slack-webhook_slack.png" alt="dockerhub-slack-webhook"></p>
+
+</section>
+<section>
+
+<h4>頑張ったこと</h4>
+<p>Deploy to Herokuボタンに対応してるので、Herokuのアカウントさえあればワンクリックでデプロイできる</p>
+
+<p><img src="images/dockerhub-slack-webhook_usage.png" alt="dockerhub-slack-webhook_usage"></p>
+
+</section>
+<section>
+
+<h2>まとめ</h2>
+<ul>
+  <li>ChatWorkを使ってる場合はChatWorkMentionTaskは便利なので是非使ってください</li>
+  <li>RubyでChatWorkをハックする技術はだいたい制覇できた感あるｗ</li>
+</ul>
 
 </section>
