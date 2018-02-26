@@ -84,14 +84,14 @@ https://github.com/sue445/chatwork_mention_task/commit/ec3e2583044e2c132ef1de9ef
 
 ---
 
-## omniauth-chatwork :gem:
+### omniauth-chatwork :gem:
 https://github.com/sue445/omniauth-chatwork
 
 * ChatWorkのOAuth認証に対応したomniauthのprovider
 * 詳しいこと: [omniauth-chatworkを作った](http://sue445.hatenablog.com/entry/2017/11/16/172724)
 
 ---
-### 実際の設定
+#### 実際の設定
 Railsだとこんな風に書いておくだけでいい感じにChatWorkのOAuth認証が使えるようになる
 
 ```ruby
@@ -105,7 +105,7 @@ https://github.com/sue445/chatwork_mention_task/blob/10dd0c197060fbc62016fe33b60
 
 ---
 
-## chatwork :gem:
+### chatwork :gem:
 https://github.com/asonas/chatwork-ruby
 
 * omniauth-chatworkでOAuth認証できてもAPIでアクセストークンが使えないと意味がないのでchatwork gemのOAuth対応をした
@@ -114,17 +114,17 @@ https://github.com/asonas/chatwork-ruby
 
 ---
 
-### やったこと
+#### やったこと
 ![chatwork-ruby_contributors](images/chatwork-ruby_contributors.png)
 
 ---
 
-### 頑張ったこと
+#### 頑張ったこと
 * ChatWorkが公開してるAPIのスキーマ(raml)を使ってrspecのテストデータを自動生成するようにした
 * https://github.com/asonas/chatwork-ruby のsubmoduleに https://github.com/chatwork/api を追加してramlを使えるようにしている
 
 ---
-#### 実際のテストコード
+##### 実際のテストコード
 * `stub_chatwork_request` と `it_behaves_like :a_chatwork_api` でramlを利用
 * APIクライアントではテストデータの生成が面倒なのでそこを公式が提供しているデータを使って自動化できて便利
 
@@ -147,7 +147,7 @@ https://github.com/asonas/chatwork-ruby/blob/v0.8.0/spec/lib/chatwork/message_sp
 
 ---
 
-## chatwork_webhook_verify :gem:
+### chatwork_webhook_verify :gem:
 * https://github.com/sue445/chatwork_webhook_verify
 * ChatWorkのwebhookの署名を検証するためのgem
 * Railsだと `before_action` から呼んでやるだけでOK :ok_woman:
