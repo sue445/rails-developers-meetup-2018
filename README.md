@@ -1,8 +1,8 @@
-# ChatWorkMentionTaskを作った #megurorb
+# ChatWorkMentionTaskを作った #railsdm #rdm2018A
 
-[Meguro.rb#12 2018/02/26(Mon.)](https://megurorb.connpass.com/event/78332/) の発表資料です
+[Rails Developers Meetup 2018: Day 2](https://techplay.jp/event/655769) の発表資料です
 
-* html版：https://sue445.github.io/megurorb-12/#/ [![hatebu](http://b.hatena.ne.jp/entry/image/https://sue445.github.io/megurorb-12/%23/)](http://b.hatena.ne.jp/entry/https://sue445.github.io/megurorb-12/%23/)
+* html版：https://sue445.github.io/rails-developers-meetup-2018/#/ [![hatebu](http://b.hatena.ne.jp/entry/image/https://sue445.github.io/rails-developers-meetup-2018/%23/)](http://b.hatena.ne.jp/entry/https://sue445.github.io/rails-developers-meetup-2018/%23/)
 * markdown版：[slides.md](slides.md)
 
 ## Development
