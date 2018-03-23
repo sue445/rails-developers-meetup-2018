@@ -3,9 +3,9 @@
 <h1>ChatWorkMentionTaskを作った</h1>
 <p>sue445</p>
 
-<p>2018/02/26 <a href="https://megurorb.connpass.com/event/78332/">Meguro.rb#12</a></p>
+<p>2018/03/25 <a href="https://techplay.jp/event/655769">Rails Developers Meetup 2018: Day 2</a></p>
 
-<p><a href="https://github.com/sue445/megurorb-12">https://github.com/sue445/megurorb-12</a></p>
+<p><a href="https://github.com/sue445/rails-developers-meetup-2018">https://github.com/sue445/rails-developers-meetup-2018</a></p>
 
 </section>
 <section>
@@ -54,7 +54,7 @@
 
 <h3>所感</h3>
 <ul>
-  <li>半月くらい人柱運用してるけど日々の仕事がむっちゃ捗ってる！！！</li>
+  <li>1ヶ月くらい人柱運用してるけど日々の仕事がむっちゃ捗ってる！！！</li>
   <li>ぶっちゃげChatWork本体に欲しい機能なんだが、<a href="http://feedback-ja.chatwork.com/forums/269086-chatwork-%E3%81%94%E6%84%8F%E8%A6%8B-%E3%81%94%E8%A6%81%E6%9C%9B%E3%83%95%E3%82%A9%E3%83%BC%E3%83%A9%E3%83%A0/suggestions/7575039-to%E4%B8%80%E8%A6%A7%E6%A9%9F%E8%83%BD">3年前から要望は出ている</a> がいまだに実装されていないので諦めて自分で作った</li>
 </ul>
 
@@ -67,7 +67,7 @@
   <li>ChatWork以外はいつものやつ
     <ul>
       <li>Ruby 2.5.0</li>
-      <li>Rails 5.2.0.rc1</li>
+      <li>Rails 5.2.0.rc2</li>
       <li>Bootstrap 4.0.0</li>
       <li>ChatWork (API, OAuth, Webhook)</li>
     </ul>
@@ -105,6 +105,13 @@
 <p><img src="images/commit_ec3e2583044e2c132ef1de9ef0c656f1e74dcac1.png" alt="commit_ec3e2583044e2c132ef1de9ef0c656f1e74dcac1"></p>
 
 <p><a href="https://github.com/sue445/chatwork_mention_task/commit/ec3e2583044e2c132ef1de9ef0c656f1e74dcac1">https://github.com/sue445/chatwork_mention_task/commit/ec3e2583044e2c132ef1de9ef0c656f1e74dcac1</a></p>
+
+</section>
+<section>
+
+<p>Deploy to Herokuボタンに対応してるので、HerokuのアカウントとChatWorkのOAuth Clientさえあればワンクリックでデプロイできる</p>
+
+<p><img src="images/chatwork_mention_task_heroku_deploy.png" alt="chatwork_mention_task_heroku_deploy"></p>
 
 </section>
 <section>
@@ -269,12 +276,12 @@ end
 <p>常に最新のheroku/cliをDockerイメージで使いたかったので、heroku/cliの更新を自動検知してDockerイメージを自動ビルドする仕組を作った</p>
 
 <ol>
-  <li>CircleCIのスケジューラが週1で起動</li>
+  <li>CircleCIのスケジューラが1日1回起動</li>
   <li>heroku cliのバージョンが上がっていればCircleCIがファイルをコミットしてGitHubにpush</li>
   <li>GitHubにpushされればDocker Hubの <a href="https://docs.docker.com/docker-hub/github/">automated builds</a> でビルドがされる</li>
 </ol>
 
-<p><a href="https://github.com/sue445/dockerfile-heroku-cli/blob/fd4517b1b252e182d7b318fed74fe95fbe79e782/.circleci/config.yml#L64-L79">https://github.com/sue445/dockerfile-heroku-cli/blob/fd4517b1b252e182d7b318fed74fe95fbe79e782/.circleci/config.yml#L64-L79</a></p>
+<p><a href="https://github.com/sue445/dockerfile-heroku-cli/blob/36e2441df5664baeb3ed97bd02386490d38355df/.circleci/config.yml#L72-L79">https://github.com/sue445/dockerfile-heroku-cli/blob/36e2441df5664baeb3ed97bd02386490d38355df/.circleci/config.yml#L72-L79</a></p>
 
 </section>
 <section>
@@ -283,7 +290,7 @@ end
 </h3>
 <ul>
   <li><a href="https://github.com/sue445/dockerhub-slack-webhook">https://github.com/sue445/dockerhub-slack-webhook</a></li>
-  <li>Docker Hubでビルドした後にSlackに通知するためのwebhook</li>
+  <li>Docker Hubでビルドした後にSlackに通知するためのSinatra製のwebhook</li>
   <li>ビルドしたイメージがいつビルド終わるか分からないので、Slackに手軽に通知できるようにしたかった</li>
 </ul>
 
@@ -293,7 +300,7 @@ end
 <section>
 
 <h4>頑張ったこと</h4>
-<p>Deploy to Herokuボタンに対応してるので、Herokuのアカウントさえあればワンクリックでデプロイできる</p>
+<p>Deploy to Herokuボタンに対応してるので、HerokuのアカウントとSlackのwebhookさえあればワンクリックでデプロイできる</p>
 
 <p><img src="images/dockerhub-slack-webhook_usage.png" alt="dockerhub-slack-webhook_usage"></p>
 

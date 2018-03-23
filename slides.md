@@ -1,9 +1,9 @@
 # ChatWorkMentionTaskを作った
 sue445
 
-2018/02/26 [Meguro.rb#12](https://megurorb.connpass.com/event/78332/)
+2018/03/25 [Rails Developers Meetup 2018: Day 2](https://techplay.jp/event/655769)
 
-https://github.com/sue445/megurorb-12
+https://github.com/sue445/rails-developers-meetup-2018
 
 ---
 ## 自己紹介 [![sue445](images/sue445.png)](https://twitter.com/sue445)
@@ -35,7 +35,7 @@ https://github.com/sue445/megurorb-12
 ---
 
 ### 所感
-* 半月くらい人柱運用してるけど日々の仕事がむっちゃ捗ってる！！！
+* 1ヶ月くらい人柱運用してるけど日々の仕事がむっちゃ捗ってる！！！
 * ぶっちゃげChatWork本体に欲しい機能なんだが、[3年前から要望は出ている](http://feedback-ja.chatwork.com/forums/269086-chatwork-%E3%81%94%E6%84%8F%E8%A6%8B-%E3%81%94%E8%A6%81%E6%9C%9B%E3%83%95%E3%82%A9%E3%83%BC%E3%83%A9%E3%83%A0/suggestions/7575039-to%E4%B8%80%E8%A6%A7%E6%A9%9F%E8%83%BD) がいまだに実装されていないので諦めて自分で作った
 
 ---
@@ -44,7 +44,7 @@ https://github.com/sue445/megurorb-12
 * https://github.com/sue445/chatwork_mention_task
 * ChatWork以外はいつものやつ
   * Ruby 2.5.0
-  * Rails 5.2.0.rc1
+  * Rails 5.2.0.rc2
   * Bootstrap 4.0.0
   * ChatWork (API, OAuth, Webhook)
 
@@ -72,6 +72,12 @@ webhookの `params[:body]` にチャット本文が入っていて、それが�
 ![commit_ec3e2583044e2c132ef1de9ef0c656f1e74dcac1](images/commit_ec3e2583044e2c132ef1de9ef0c656f1e74dcac1.png)
 
 https://github.com/sue445/chatwork_mention_task/commit/ec3e2583044e2c132ef1de9ef0c656f1e74dcac1
+
+---
+
+Deploy to Herokuボタンに対応してるので、HerokuのアカウントとChatWorkのOAuth Clientさえあればワンクリックでデプロイできる
+
+![chatwork_mention_task_heroku_deploy](images/chatwork_mention_task_heroku_deploy.png)
 
 ---
 
@@ -194,16 +200,16 @@ https://github.com/sue445/chatwork_mention_task/blob/10dd0c197060fbc62016fe33b60
 #### 頑張ったこと
 常に最新のheroku/cliをDockerイメージで使いたかったので、heroku/cliの更新を自動検知してDockerイメージを自動ビルドする仕組を作った
 
-1. CircleCIのスケジューラが週1で起動
+1. CircleCIのスケジューラが1日1回起動
 2. heroku cliのバージョンが上がっていればCircleCIがファイルをコミットしてGitHubにpush
 3. GitHubにpushされればDocker Hubの [automated builds](https://docs.docker.com/docker-hub/github/) でビルドがされる
 
-https://github.com/sue445/dockerfile-heroku-cli/blob/fd4517b1b252e182d7b318fed74fe95fbe79e782/.circleci/config.yml#L64-L79
+https://github.com/sue445/dockerfile-heroku-cli/blob/36e2441df5664baeb3ed97bd02386490d38355df/.circleci/config.yml#L72-L79
 
 ---
 ### dockerhub-slack-webhook :whale:
 * https://github.com/sue445/dockerhub-slack-webhook
-* Docker Hubでビルドした後にSlackに通知するためのwebhook
+* Docker Hubでビルドした後にSlackに通知するためのSinatra製のwebhook 
 * ビルドしたイメージがいつビルド終わるか分からないので、Slackに手軽に通知できるようにしたかった
 
 ![dockerhub-slack-webhook](images/dockerhub-slack-webhook_slack.png)
@@ -211,7 +217,7 @@ https://github.com/sue445/dockerfile-heroku-cli/blob/fd4517b1b252e182d7b318fed74
 ---
 
 #### 頑張ったこと
-Deploy to Herokuボタンに対応してるので、Herokuのアカウントさえあればワンクリックでデプロイできる
+Deploy to Herokuボタンに対応してるので、HerokuのアカウントとSlackのwebhookさえあればワンクリックでデプロイできる
 
 ![dockerhub-slack-webhook_usage](images/dockerhub-slack-webhook_usage.png)
 

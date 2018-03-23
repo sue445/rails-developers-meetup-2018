@@ -13,3 +13,7 @@
 .reveal section img {
   border: none;
 }
+
+.reveal section img.emoji {
+  height: 1em;
+}
