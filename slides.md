@@ -51,9 +51,7 @@ https://github.com/sue445/rails-developers-meetup-2018
 ---
 
 ### 仕組み
-1. ChatWorkMentionTaskにChatWorkのアカウントでOAuth認証
-2. ChatWorkの自分のアカウントにChatWorkMentionTaskのwebhookを登録
-3. メンションがきたらwebhookが飛んできてタスク化される
+![overview](images/overview.png)
 
 ---
 
